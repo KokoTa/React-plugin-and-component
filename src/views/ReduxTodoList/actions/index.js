@@ -36,7 +36,7 @@ export const setVisibleStatus = (status) => ({
 // 拿到数据后再正常发送 action
 // redux-thunk 就是一个拦截函数，在触发 action 前进行异步获取信息
 // redux-saga 就是一个 reducer，用户点击触发 action 后触发对应的 saga 监听，获取数据后通过触发另一个 action 进行同步处理
-export const reqList = (name) => {
+export const getList = (name) => {
   return (dispatch, getState) => {
     console.log(getState())
     new Promise((resolve, reject) => {
@@ -63,4 +63,9 @@ export const reqList = (name) => {
 export const getInfo = (name) => ({
   type: 'GET_INFO',
   name
+})
+
+// 清空项目
+export const clearTodos = () => ({
+  type: 'CLEAR_TODOS'
 })

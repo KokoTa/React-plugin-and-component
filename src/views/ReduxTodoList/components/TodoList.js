@@ -18,6 +18,7 @@ export class TodoList extends Component {
   }
 
   componentDidMount() {
+    this.props.clearTodos();
     this.props.getList();
     this.props.getInfo();
   }

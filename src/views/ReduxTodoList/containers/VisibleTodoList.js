@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleTodo, VisibleStatusOptions, reqList, getInfo } from '../actions'
+import { toggleTodo, VisibleStatusOptions, getList, getInfo, clearTodos } from '../actions'
 import TodoList from '../components/TodoList'
 
 /**
@@ -26,8 +26,9 @@ const mapStateToProps = state => ({
 
 // 设置行为
 const mapDispatchToProps = dispatch => ({
-  getList: () => dispatch(reqList('K1')),
+  getList: () => dispatch(getList('K1')),
   getInfo: () => dispatch(getInfo('K2')),
+  clearTodos: () => dispatch(clearTodos()),
   onTodoClick: id => dispatch(toggleTodo(id))
 })
 

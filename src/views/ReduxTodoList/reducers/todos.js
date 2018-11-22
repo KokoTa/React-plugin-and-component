@@ -21,8 +21,10 @@ const todos = (state = [], action) => {
       })
     case "GET_LIST": // 异步获取项目列表
       return [...state, ...action.list]
-    case "SHOW_INFO":
+    case "SHOW_INFO": // 异步新增一个项目
       return [...state, action.result]
+    case "CLEAR_TODOS": // 清空项目
+      return []
     default: // 返回原始状态
       return state
   }
