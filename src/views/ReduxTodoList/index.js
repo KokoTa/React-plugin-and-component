@@ -1,11 +1,20 @@
 import React from 'react'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
+import mySaga from './actions/MySaga'
 import App from './components/App'
 import rootReducer from './reducers'
 
-// 第二个参数用于使 chrome redux-devtools-extension 生效
-const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+// 这里是固定写法
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const saga = createSagaMiddleware();
+const store = createStore(rootReducer, composeEnhancers(
+  applyMiddleware(thunk, saga)
+))
+
+saga.run(mySaga)
 
 // 全局注入 store
 export default () => (

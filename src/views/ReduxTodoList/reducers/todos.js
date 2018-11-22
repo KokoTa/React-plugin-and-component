@@ -19,6 +19,10 @@ const todos = (state = [], action) => {
         }
         return todo
       })
+    case "GET_LIST": // 异步获取项目列表
+      return [...state, ...action.list]
+    case "SHOW_INFO":
+      return [...state, action.result]
     default: // 返回原始状态
       return state
   }

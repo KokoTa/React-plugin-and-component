@@ -6,4 +6,4 @@
 
 * 两者进行组合形成一个混合组件
 
-* 该 demo 对展示和容器进行了明显的分离，当然实际项目我们也可以将其混合编写，如 [react-book-program](https://github.com/KokoTa/react-book-program)
+* 该 demo 对展示和容器进行了明显的分离，当然实际开发中我们可以先将其混合编写以便于理解，如 [TodoList2](https://github.com/KokoTa/react-book-program/tree/master/other/TodoList-demo)，然后随着项目扩大再进行分离。

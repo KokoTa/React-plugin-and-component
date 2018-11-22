@@ -17,12 +17,17 @@ export class TodoList extends Component {
     onTodoClick: PropTypes.func.isRequired
   }
 
+  componentDidMount() {
+    this.props.getList();
+    this.props.getInfo();
+  }
+
   render() {
     const {todos, onTodoClick} = this.props;
     return (
       <ul>
         { todos.map((todo, index) => (
-          <Todo key={index} {...todo} onClick={() => onTodoClick(index)}></Todo>
+          <Todo key={index} {...todo} onClick={() => onTodoClick(todo.id)}></Todo>
         )) }
       </ul>
     )

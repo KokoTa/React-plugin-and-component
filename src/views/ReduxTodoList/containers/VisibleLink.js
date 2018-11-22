@@ -3,7 +3,7 @@ import { setVisibleStatus } from '../actions'
 import Link from '../components/Link'
 
 /**
- * 给 Link 组件设置状态管理
+ * 给 Link 组件设置状态管理，返回一个新组件
  */
 
 // 按钮是否可点击

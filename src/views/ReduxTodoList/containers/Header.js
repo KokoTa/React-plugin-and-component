@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { addTodo } from '../actions' // 获取 “添加项目” 这个行为
 
 /**
- * 添加项目，设置状态管理
+ * 添加项目，设置状态管理，这是一个混合组件(混合了展示和容器)
  */
 const AddTodo = ({ dispatch }) => {
   let input;
