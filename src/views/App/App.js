@@ -12,6 +12,7 @@ import {
 import './App.css';
 import Home from '../Home';
 import Gallary from '../Gallary';
+import ReduxTodoList from '../ReduxTodoList';
 import list from './config.js';
 
 
@@ -72,7 +73,8 @@ class App extends PureComponent {
                     {/* 因此这里我们使用了 Route 的 location，当我们路由切换时会传给旧 Switch 旧值、传给新 Switch 新值，这样就可以避免两个 Switch 渲染同样的内容 */}
                     <Switch location={location}>
                       <Route path="/" exact component={Home}></Route>
-                      <Route path="/gallary" component={Gallary}></Route>
+                      <Route path="/Gallary" component={Gallary}></Route>
+                      <Route path="/ReduxTodoList" component={ReduxTodoList}></Route>
                     </Switch>
                   </CSSTransition>
                 </TransitionGroup>
