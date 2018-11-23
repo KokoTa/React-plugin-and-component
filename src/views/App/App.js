@@ -13,6 +13,7 @@ import './App.css';
 import Home from '../Home';
 import Gallary from '../Gallary';
 import ReduxTodoList from '../ReduxTodoList';
+import CommentApp from '../CommentApp/CommentApp';
 import list from './config.js';
 
 
@@ -75,6 +76,7 @@ class App extends PureComponent {
                       <Route path="/" exact component={Home}></Route>
                       <Route path="/Gallary" component={Gallary}></Route>
                       <Route path="/ReduxTodoList" component={ReduxTodoList}></Route>
+                      <Route path="/CommentApp" component={CommentApp}></Route>
                     </Switch>
                   </CSSTransition>
                 </TransitionGroup>

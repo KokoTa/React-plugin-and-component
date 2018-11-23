@@ -38,7 +38,6 @@ export const setVisibleStatus = (status) => ({
 // redux-saga 就是一个 reducer，用户点击触发 action 后触发对应的 saga 监听，获取数据后通过触发另一个 action 进行同步处理
 export const getList = (name) => {
   return (dispatch, getState) => {
-    console.log(getState())
     new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve([

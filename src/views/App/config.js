@@ -1,4 +1,5 @@
 export default [
   'Gallary',
-  'ReduxTodoList'
+  'ReduxTodoList',
+  'CommentApp'
 ]
