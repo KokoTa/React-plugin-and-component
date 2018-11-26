@@ -23,14 +23,16 @@ export default class CommentInput extends Component {
     this.textarea.focus()
   }
 
+
+  _saveUserNameOnLocalStorage(name) {
+    localStorage.setItem('userName', name)
+  }
+
   handleUserNameChange = (e) => {
     this.setState({ userName: e.target.value })
   }
   handleUserNameBlur = (e) => {
     this._saveUserNameOnLocalStorage(e.target.value)
-  }
-  _saveUserNameOnLocalStorage(name) {
-    localStorage.setItem('userName', name)
   }
   handleContentChange = (e) => {
     this.setState({ content: e.target.value })

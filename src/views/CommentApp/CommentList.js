@@ -28,7 +28,7 @@ export default class CommentList extends Component {
 
     return (
       <div>
-        {comments.map((c, i) => <Comment {...c} onDeleteComment={this.handleDeleteComment} index={i} key={i}></Comment>)}
+        {comments.map((c, i) => <Comment {...c} onDeleteComment={this.handleDeleteComment} index={i} key={c.createTime}></Comment>)}
       </div>
     )
   }

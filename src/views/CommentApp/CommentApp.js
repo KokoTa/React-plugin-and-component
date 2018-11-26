@@ -1,26 +1,22 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import CommentInput from './CommentInput'
 import CommentList from './CommentList'
 import './style.css'
 
-export default class CommentApp extends Component {
+import wrapOperateComments from './wrapOperateComments'
+
+class CommentApp extends Component {
+  static propTypes = {
+    comments: PropTypes.array.isRequired,
+    saveComments: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
-      comments: []
+      comments: props.comments
     }
-  }
-
-  componentWillMount = () => {
-    this._getCommentsOnLocalStorage()
-  }
-
-  _saveCommentsOnLocalStorage(comments) {
-    localStorage.setItem('comments', JSON.stringify(comments))
-  }
-  _getCommentsOnLocalStorage() {
-    const comments = localStorage.getItem('comments')
-    if (comments) this.setState({ comments: JSON.parse(comments) })
   }
 
   handleSubmit = (comment) => {
@@ -30,14 +26,14 @@ export default class CommentApp extends Component {
     comment.createTime = +new Date()
     const comments = [...this.state.comments, comment]
     this.setState({ comments })
-    this._saveCommentsOnLocalStorage(comments)
+    this.props.saveComments(comments)
   }
 
   handleDeleteComment = (index) => {
     const comments = [...this.state.comments]
     comments.splice(index, 1)
     this.setState({ comments })
-    this._saveCommentsOnLocalStorage(comments)
+    this.props.saveComments(comments)
   }
 
   render() {
@@ -51,3 +47,5 @@ export default class CommentApp extends Component {
     )
   }
 }
+
+export default wrapOperateComments(CommentApp, 'comments');
