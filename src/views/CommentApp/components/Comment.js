@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 
 export default class Comment extends Component {
   static propTypes = {
-    userName: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    createTime: PropTypes.number.isRequired,
+    comment: PropTypes.shape({
+      userName: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      createTime: PropTypes.number.isRequired,
+    }),
     onDeleteComment: PropTypes.func.isRequired,
     index: PropTypes.number.isRequired
   }
@@ -31,7 +33,7 @@ export default class Comment extends Component {
   }
 
   _updateTimeString = () => {
-    const { createTime } = this.props
+    const { createTime } = this.props.comment
     const duration = (+new Date() - createTime) / 1000
     const timeString = duration > 60 ? `${Math.round(duration / 60)}分钟前` : `${Math.round(Math.max(1, duration))}秒前`
     this.setState({ timeString })
@@ -54,7 +56,7 @@ export default class Comment extends Component {
 
   render() {
     const { timeString } = this.state
-    const { userName, content } = this.props
+    const { userName, content } = this.props.comment
     return (
       <div className='comment'>
         <div className='comment-user'>

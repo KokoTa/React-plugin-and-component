@@ -13,7 +13,7 @@ import './App.css';
 import Home from '../Home';
 import Gallary from '../Gallary';
 import ReduxTodoList from '../ReduxTodoList';
-import CommentApp from '../CommentApp/CommentApp';
+import CommentApp from '../CommentApp';
 import list from './config.js';
 
 

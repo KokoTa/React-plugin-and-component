@@ -14,10 +14,6 @@ export default class CommentList extends Component {
     onDeleteComment: PropTypes.func.isRequired
   }
 
-  static defaultProps = {
-    comments: []
-  }
-
   handleDeleteComment = (index) => {
     const { onDeleteComment } = this.props
     onDeleteComment(index)
@@ -28,7 +24,7 @@ export default class CommentList extends Component {
 
     return (
       <div>
-        {comments.map((c, i) => <Comment {...c} onDeleteComment={this.handleDeleteComment} index={i} key={c.createTime}></Comment>)}
+        {comments.map((c, i) => <Comment comment={c} onDeleteComment={this.handleDeleteComment} index={i} key={c.createTime}></Comment>)}
       </div>
     )
   }
